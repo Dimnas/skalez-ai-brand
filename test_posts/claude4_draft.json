@@ -1,0 +1,61 @@
+[
+  {
+    "n": 1,
+    "type": "cover",
+    "date": "TUE, MAY 21",
+    "headline": "Claude 4 just dropped.",
+    "sub": "The best model Anthropic has ever shipped. Heres what nobody is talking about."
+  },
+  {
+    "n": 2,
+    "type": "text",
+    "prompt": "# claude-4 --status",
+    "headline": "Coding benchmark: 72.5% on SWE-bench.",
+    "body": "Thats higher than GPT-4.5, Gemini 2.5 Pro, and every open-source model. Anthropic has been quietly rewriting the leaderboard."
+  },
+  {
+    "n": 3,
+    "type": "media",
+    "img": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+    "tag": "DROP",
+    "headline": "3 features that change everything",
+    "body": "Extended thinking mode lets Claude reason for minutes before answering. Computer use is now production-grade. And the new agent SDK? Zero-setup deploys."
+  },
+  {
+    "n": 4,
+    "type": "text",
+    "prompt": "# cat pricing.txt",
+    "headline": "$20/month for Pro. Same price.",
+    "body": "They didnt raise prices. They shipped the best model in the world at the same cost. That is the real flex."
+  },
+  {
+    "n": 5,
+    "type": "media",
+    "img": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&q=80",
+    "tag": "BREAKING",
+    "headline": "Context window: 200K tokens",
+    "body": "Upload an entire codebase. A book. 50 research papers. Claude reads all of it without forgetting the first paragraph."
+  },
+  {
+    "n": 6,
+    "type": "text",
+    "prompt": "# wc -l competitors.md",
+    "headline": "Why this matters now.",
+    "body": "OpenAI is focused on consumer. Google is focused on ads. Anthropic is the only company building something developers actually want to use."
+  },
+  {
+    "n": 7,
+    "type": "media",
+    "img": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80",
+    "tag": "NEWS",
+    "headline": "The quietest product launch of 2026",
+    "body": "No keynote. No hype video. Just a blog post and a model that works. This is how dominance looks when youre not paying attention."
+  },
+  {
+    "n": 8,
+    "type": "cta",
+    "prompt": "$ skalez.ai --subscribe",
+    "cmd": "follow @skalez.ai",
+    "sub": "AI drops, no noise. Terminal-first. Every day."
+  }
+]

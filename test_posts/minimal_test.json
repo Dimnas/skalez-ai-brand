@@ -1,0 +1,25 @@
+[
+  {
+    "n": 1,
+    "type": "cover",
+    "prompt": "skalez.ai --daily",
+    "ascii_header": "skalez.ai",
+    "headline": "Claude 4 just dropped.",
+    "sub": "The best model Anthropic has ever shipped."
+  },
+  {
+    "n": 3,
+    "type": "media",
+    "img": "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800\u0026q=80",
+    "tag": "[DROP]",
+    "headline": "3 features that change everything",
+    "body": "Extended thinking mode. Computer use. Agent SDK."
+  },
+  {
+    "n": 8,
+    "type": "cta",
+    "prompt": "skalez.ai --subscribe",
+    "cmd": "follow @skalez.ai",
+    "sub": "AI drops. No noise."
+  }
+]

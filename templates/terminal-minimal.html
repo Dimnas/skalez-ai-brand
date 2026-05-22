@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0A0A0F;
+    --fg: #F5F5F0;
+    --dim: #6B6B70;
+    --accent: #33FF00;
+    --amber: #FFB627;
+  }
+
+  body {
+    width: 1080px;
+    height: 1350px;
+    background: var(--bg);
+    font-family: "IBM Plex Mono", "SF Mono", "Menlo", monospace;
+    color: var(--fg);
+    overflow: hidden;
+    padding: 100px 80px 80px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Minimal Prompt Line ── */
+  .prompt {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--dim);
+    margin-bottom: 48px;
+  }
+
+  .prompt::before {
+    content: '$ ';
+    color: var(--accent);
+  }
+
+  /* ── ANSI Shadow Header ── */
+  .ansi {
+    font-size: 8px;
+    line-height: 1.0;
+    color: var(--fg);
+    white-space: pre;
+    margin-bottom: 40px;
+  }
+
+  /* ── Headlines ── */
+  h1 {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+
+  /* ── Body ── */
+  p {
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--dim);
+  }
+
+  .sub {
+    font-size: 20px;
+    color: var(--dim);
+    margin-top: 16px;
+  }
+
+  /* ── Media Frame ── */
+  .media {
+    width: 920px;
+    height: 640px;
+    border: 1px solid #2A2A2E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+
+  .media img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* ── Tag ── */
+  .tag {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--amber);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  /* ── CTA ── */
+  .cta-cmd {
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--accent);
+    margin-top: 48px;
+  }
+
+  .cta-cmd::before {
+    content: '> ';
+    color: var(--amber);
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 14px;
+    height: 28px;
+    background: var(--accent);
+    animation: blink 1s steps(1) infinite;
+    vertical-align: text-bottom;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  /* ── Slide type layout helpers ── */
+  .slide-cover {
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .slide-media {
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 60px;
+  }
+
+  .slide-text {
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .slide-cta {
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  /* ── Watermark ── */
+  .wm {
+    position: absolute;
+    bottom: 40px;
+    right: 60px;
+    font-size: 11px;
+    color: var(--dim);
+  }
+
+  .hidden { display: none !important; }
+</style>
+</head>
+<body class="slide-cover">
+  <!-- SLIDE_CONTENT -->
+</body>
+</html>

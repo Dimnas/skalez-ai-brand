@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0A0A0F;
+    --term-black: #000000;
+    --term-white: #F5F5F0;
+    --term-gray: #6B6B70;
+    --term-dark: #141418;
+    --term-border: #2A2A2E;
+    --term-cursor: #33FF00;
+    --term-accent: #FFB627;
+  }
+
+  body {
+    width: 1080px;
+    height: 1350px;
+    background: var(--bg);
+    font-family: "IBM Plex Mono", "SF Mono", "Menlo", "Monaco", "Courier New", monospace;
+    overflow: hidden;
+    position: relative;
+    color: var(--term-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  /* ═══════════════════ TERMINAL FRAME ═══════════════════ */
+
+  .terminal {
+    width: 990px;
+    height: 1230px;
+    margin-top: 60px;
+    border: 2px solid var(--term-border);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* ── Title Bar ── */
+  .title-bar {
+    height: 42px;
+    background: var(--term-dark);
+    border-bottom: 1px solid var(--term-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px;
+    flex-shrink: 0;
+  }
+
+  .title-left {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--term-white);
+    letter-spacing: 0.02em;
+  }
+
+  .title-left::before {
+    content: '◆ ';
+    color: var(--term-cursor);
+    font-size: 11px;
+  }
+
+  .title-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--term-gray);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .title-right {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--term-accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* ── Content Area ── */
+  .content {
+    flex: 1;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 40px 32px;
+    position: relative;
+  }
+
+  /* ── Status Bar ── */
+  .status-bar {
+    height: 34px;
+    background: var(--term-dark);
+    border-top: 1px solid var(--term-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px;
+    flex-shrink: 0;
+  }
+
+  .status-left {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--term-gray);
+  }
+
+  .status-right {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--term-gray);
+    letter-spacing: 0.04em;
+  }
+
+  /* ═══════════════════ SLIDE TYPES ═══════════════════ */
+
+  /* ── Cover / Title Slide ── */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+    padding: 0 24px;
+  }
+
+  .cover .ascii-logo {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--term-cursor);
+    letter-spacing: 0;
+    margin-bottom: 32px;
+    white-space: pre;
+  }
+
+  .cover .date {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--term-gray);
+    margin-bottom: 16px;
+    letter-spacing: 0.04em;
+  }
+
+  .cover .headline {
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--term-white);
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .cover .sub {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--term-gray);
+    line-height: 1.4;
+  }
+
+  .ansi-header {
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--term-white);
+    letter-spacing: 0;
+    white-space: pre;
+    margin-bottom: 24px;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* ── Text Slide ── */
+  .text-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+    padding: 0 24px;
+  }
+
+  .text-slide .prompt {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--term-gray);
+    margin-bottom: 12px;
+  }
+
+  .text-slide .headline {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.12;
+    color: var(--term-white);
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+
+  .text-slide .body {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--term-gray);
+    line-height: 1.6;
+    max-width: 640px;
+  }
+
+  /* ── Media Slide (Centered Border + Text Below) ── */
+  .media-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+  }
+
+  .media-frame {
+    width: 860px;
+    height: 640px;
+    border: 1px solid var(--term-border);
+    background: var(--term-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .media-frame img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .media-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.02;
+    pointer-events: none;
+    background-image: radial-gradient(circle, var(--term-white) 1px, transparent 1px);
+    background-size: 10px 10px;
+  }
+
+  .media-caption {
+    width: 860px;
+    margin-top: 36px;
+    flex-shrink: 0;
+  }
+
+  .media-caption .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--term-accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding: 3px 8px;
+    border: 1px solid var(--term-accent);
+    border-radius: 3px;
+  }
+
+  .media-caption .headline {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--term-white);
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+  }
+
+  .media-caption .body {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--term-gray);
+    line-height: 1.55;
+  }
+
+  /* ── CTA Slide ── */
+  .cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+    padding: 0 24px;
+  }
+
+  .cta .prompt {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--term-gray);
+    margin-bottom: 8px;
+  }
+
+  .cta .cmd {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--term-cursor);
+    line-height: 1.3;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .cta .cmd::before {
+    content: '>';
+    color: var(--term-accent);
+  }
+
+  .cta .cursor {
+    display: inline-block;
+    width: 12px;
+    height: 22px;
+    background: var(--term-cursor);
+    animation: blink 1s steps(1) infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  .cta .sub {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--term-gray);
+    margin-top: 24px;
+    max-width: 480px;
+  }
+
+  /* ═══════════════════ HELPERS ═══════════════════ */
+
+  .hidden { display: none !important; }
+
+  /* Bottom accent bar (optional brand mark) */
+  .accent-bar {
+    position: absolute;
+    bottom: 34px;
+    left: 18px;
+    width: 40px;
+    height: 3px;
+    background: var(--term-accent);
+  }
+</style>
+</head>
+<body>
+  <div class="terminal">
+    <div class="title-bar">
+      <span class="title-left">skalez.ai</span>
+      <span class="title-center">AI DAILY — <!-- INDICATOR --></span>
+      <span class="title-right">[NEW]</span>
+    </div>
+    <div class="content">
+      <!-- CONTENT_INSERTED_HERE -->
+    </div>
+    <div class="status-bar">
+      <span class="status-left">skalez.ai@instagram ~ %</span>
+      <span class="status-right"><!-- DATE --></span>
+    </div>
+  </div>
+</body>
+</html>
